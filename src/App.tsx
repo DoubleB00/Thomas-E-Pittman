@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
+import ServicesChoice from './components/ServicesChoice';
+import ResidentialServices from './components/ResidentialServices';
+import CommercialServices from './components/CommercialServices';
 import Gallery from './components/Gallery';
+import About from './components/About';
 import Trust from './components/Trust';
 import WhyChooseUs from './components/WhyChooseUs';
 import Testimonials from './components/Testimonials';
@@ -39,9 +41,11 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
+        <ServicesChoice />
+        <ResidentialServices />
+        <CommercialServices />
         <Gallery />
+        <About />
         <Trust />
         <WhyChooseUs />
         <Testimonials />

@@ -28,14 +28,17 @@ export default function Header() {
             <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
               Home
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
-              About
+            <button onClick={() => scrollToSection('residential')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
+              Residential
             </button>
-            <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
-              Services
+            <button onClick={() => scrollToSection('commercial')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
+              Commercial
             </button>
             <button onClick={() => scrollToSection('gallery')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
               Gallery
+            </button>
+            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
+              About
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
               Contact
@@ -61,14 +64,17 @@ export default function Header() {
             <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
               Home
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
-              About
+            <button onClick={() => scrollToSection('residential')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
+              Residential
             </button>
-            <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
-              Services
+            <button onClick={() => scrollToSection('commercial')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
+              Commercial
             </button>
             <button onClick={() => scrollToSection('gallery')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
               Gallery
+            </button>
+            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
+              About
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
               Contact
