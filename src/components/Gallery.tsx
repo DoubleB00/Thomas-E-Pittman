@@ -17,7 +17,7 @@ const images = [
   {
     src: '/att.JwOx-AXuvfbltz_ARKw9NTICSqtPt8KhljEyz4YgJ44.JPG',
     alt: 'Multi-family residential complex',
-    title: 'Multi-Family Property Restoration',
+    title: 'Multi-Family Property Restoration / Unit Turns',
     category: 'Commercial',
   },
   {
