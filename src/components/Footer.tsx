@@ -95,20 +95,20 @@ export default function Footer() {
             <div className="space-y-4 mb-6">
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#7A0F12] flex-shrink-0 mt-1" />
-                <a href="tel:555-123-4567" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  (555) 123-4567
+                <a href="tel:5044002460" className="text-gray-300 hover:text-white transition-colors font-medium">
+                  504-400-2460
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#7A0F12] flex-shrink-0 mt-1" />
-                <a href="mailto:info@thomasepittman.com" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  info@thomasepittman.com
+                <a href="mailto:Roof.ssr@gmail.com" className="text-gray-300 hover:text-white transition-colors font-medium">
+                  Roof.ssr@gmail.com
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#7A0F12] flex-shrink-0 mt-1" />
                 <p className="text-gray-300 font-medium">
-                  Serving the Greater Metro Area<br />
+                  Serving Southeast Louisiana<br />
                   and Surrounding Communities
                 </p>
               </div>

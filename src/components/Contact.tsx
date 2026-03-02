@@ -80,7 +80,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#7A0F12] focus:ring-2 focus:ring-[#7A0F12]/20 outline-none transition-all"
-                    placeholder="(555) 123-4567"
+                    placeholder="504-400-2460"
                   />
                 </div>
 
@@ -178,8 +178,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-bold text-[#2E2E2E] mb-1">Phone</p>
-                    <a href="tel:555-123-4567" className="text-[#7A0F12] hover:text-blue-700 text-lg">
-                      (555) 123-4567
+                    <a href="tel:5044002460" className="text-[#7A0F12] hover:text-blue-700 text-lg">
+                      504-400-2460
                     </a>
                   </div>
                 </div>
@@ -190,8 +190,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-bold text-[#2E2E2E] mb-1">Email</p>
-                    <a href="mailto:info@premierhomeservices.com" className="text-[#7A0F12] hover:text-blue-700">
-                      info@premierhomeservices.com
+                    <a href="mailto:Roof.ssr@gmail.com" className="text-[#7A0F12] hover:text-blue-700">
+                      Roof.ssr@gmail.com
                     </a>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function Contact() {
                   <div>
                     <p className="font-bold text-[#2E2E2E] mb-1">Service Area</p>
                     <p className="text-gray-700">
-                      Serving the Greater Metro Area<br />
+                      Serving Southeast Louisiana<br />
                       and Surrounding Communities
                     </p>
                   </div>
@@ -230,7 +230,7 @@ export default function Contact() {
                 Emergency Services Available
               </h4>
               <p className="text-gray-700">
-                For urgent matters, call us 24/7 at <a href="tel:555-123-4567" className="text-[#7A0F12] font-bold">(555) 123-4567</a>
+                For urgent matters, call us 24/7 at <a href="tel:5044002460" className="text-[#7A0F12] font-bold">504-400-2460</a>
               </p>
             </div>
           </div>

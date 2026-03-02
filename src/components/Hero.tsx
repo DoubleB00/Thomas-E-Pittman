@@ -41,11 +41,11 @@ export default function Hero() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <a
-                  href="tel:555-123-4567"
+                  href="tel:5044002460"
                   className="bg-white text-[#2E2E2E] px-8 py-4 rounded-lg hover:bg-gray-100 transition-all duration-300 font-bold text-lg flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105"
                 >
                   <Phone className="w-5 h-5" />
-                  (555) 123-4567
+                  504-400-2460
                 </a>
               </div>
 

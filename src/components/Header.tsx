@@ -15,16 +15,18 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-sm shadow-lg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24 py-3">
-          <div className="flex items-center">
+        <div className="flex items-center h-24 py-3">
+          <div className="lg:hidden w-10 flex-shrink-0" />
+
+          <div className="flex flex-1 items-center justify-center lg:flex-none lg:justify-start">
             <img
               src="/7895708F-1AC6-4A1F-814B-461F820E8739.PNG"
               alt="Thomas E Pittman Construction"
-              className="h-16 w-auto md:h-20 object-contain"
+              className="h-20 w-auto object-contain"
             />
           </div>
 
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8 ml-auto">
             <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
               Home
             </button>
@@ -43,7 +45,7 @@ export default function Header() {
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#7A0F12] font-semibold transition-colors">
               Contact
             </button>
-            <a href="tel:555-123-4567" className="flex items-center gap-2 bg-[#7A0F12] text-white px-6 py-3 rounded-lg hover:bg-[#5A0A0D] transition-colors font-bold shadow-md">
+            <a href="tel:5044002460" className="flex items-center gap-2 bg-[#7A0F12] text-white px-6 py-3 rounded-lg hover:bg-[#5A0A0D] transition-colors font-bold shadow-md">
               <Phone className="w-4 h-4" />
               Call Now
             </a>
@@ -79,7 +81,7 @@ export default function Header() {
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-[#7A0F12] font-semibold text-left">
               Contact
             </button>
-            <a href="tel:555-123-4567" className="flex items-center gap-2 bg-[#7A0F12] text-white px-6 py-3 rounded-lg hover:bg-[#5A0A0D] transition-colors font-bold justify-center shadow-md">
+            <a href="tel:5044002460" className="flex items-center gap-2 bg-[#7A0F12] text-white px-6 py-3 rounded-lg hover:bg-[#5A0A0D] transition-colors font-bold justify-center shadow-md">
               <Phone className="w-4 h-4" />
               Call Now
             </a>
