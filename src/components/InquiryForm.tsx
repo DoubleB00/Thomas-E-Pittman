@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Phone } from 'lucide-react';
 
 interface InquiryFormProps {
   serviceType: 'residential' | 'commercial' | 'general';
@@ -17,31 +17,33 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setHasError(false);
 
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
 
-      const response = await fetch(`${supabaseUrl}/rest/v1/inquiries`, {
+      const payload = {
+        access_key: accessKey,
+        subject: 'New Inquiry — Thomas E Pittman Construction',
+        from_name: 'Thomas E Pittman Construction Website',
+        ...formData,
+        service_type: serviceType,
+      };
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': supabaseAnonKey,
-          'Authorization': `Bearer ${supabaseAnonKey}`,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({
-          ...formData,
-          service_type: serviceType,
-          created_at: new Date().toISOString()
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         setIsSubmitted(true);
         setFormData({
           name: '',
@@ -52,10 +54,11 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
           budget: '',
           message: ''
         });
-        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setHasError(true);
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
+      setHasError(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -72,9 +75,9 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
     return (
       <div className="bg-green-50 border-2 border-green-500 rounded-xl p-8 text-center">
         <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-green-900 mb-2">Thank You!</h3>
-        <p className="text-green-700">
-          We've received your inquiry and will contact you within 24 hours.
+        <h3 className="text-2xl font-bold text-green-900 mb-2">Inquiry Received!</h3>
+        <p className="text-green-700 text-lg">
+          Thanks — we received your inquiry and will reach out shortly.
         </p>
       </div>
     );
@@ -82,6 +85,12 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-xl p-8">
+      <p className="text-sm font-semibold text-[#7A0F12] mb-6 flex items-center gap-2">
+        <Phone className="w-4 h-4" />
+        For fastest service, call or text{' '}
+        <a href="tel:5044002460" className="underline hover:text-[#5A0A0D]">504-400-2460</a>
+      </p>
+
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">
@@ -127,7 +136,7 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
             value={formData.phone}
             onChange={handleChange}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7A0F12] focus:border-transparent outline-none transition-all"
-            placeholder="(555) 123-4567"
+            placeholder="(504) 000-0000"
           />
         </div>
 
@@ -223,6 +232,13 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
           placeholder="Tell us about your project..."
         ></textarea>
       </div>
+
+      {hasError && (
+        <div className="mt-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg text-sm">
+          Something went wrong. Please call us directly at{' '}
+          <a href="tel:5044002460" className="font-bold underline">504-400-2460</a>.
+        </div>
+      )}
 
       <button
         type="submit"
