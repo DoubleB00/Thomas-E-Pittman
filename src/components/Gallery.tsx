@@ -3,7 +3,7 @@ import { X } from 'lucide-react';
 
 const images = [
   {
-    src: '/att.im1gfaiPHE9jcVbjtPDmOmWA1SoJQNEASnKggDdaBng.JPG',
+    src: '/att.JwOx-AXuvfbltz_ARKw9NTICSqtPt8KhljEyz4YgJ44.JPG',
     alt: 'Luxury property entrance',
     title: 'Premium Property Renovation',
     category: 'Commercial',
@@ -15,7 +15,7 @@ const images = [
     category: 'Residential',
   },
   {
-    src: '/att.JwOx-AXuvfbltz_ARKw9NTICSqtPt8KhljEyz4YgJ44.JPG',
+    src: '/att.im1gfaiPHE9jcVbjtPDmOmWA1SoJQNEASnKggDdaBng.JPG',
     alt: 'Multi-family residential complex',
     title: 'Multi-Family Property Restoration / Unit Turns',
     category: 'Commercial',
