@@ -27,7 +27,7 @@ export default function ServicesChoice() {
           >
             <div className="absolute inset-0">
               <img
-                src="/att.sOq6BqEr-Ab8u7mPxKXYXdeomQLxkXRu7p47B-rtjIo.JPG"
+                src="/image0.jpeg"
                 alt="Residential Services"
                 className="w-full h-full object-cover"
               />

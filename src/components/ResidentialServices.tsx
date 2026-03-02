@@ -98,7 +98,7 @@ export default function ResidentialServices() {
 
             <div className="relative min-h-[400px] lg:min-h-0">
               <img
-                src="/att.sOq6BqEr-Ab8u7mPxKXYXdeomQLxkXRu7p47B-rtjIo.JPG"
+                src="/image0.jpeg"
                 alt="Residential project"
                 className="absolute inset-0 w-full h-full object-cover"
               />
