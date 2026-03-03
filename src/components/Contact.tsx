@@ -22,8 +22,8 @@ export default function Contact() {
 
       const payload = {
         access_key: accessKey,
-        subject: 'New Estimate Request — Thomas E Pittman Construction',
-        from_name: 'Thomas E Pittman Construction Website',
+        subject: 'New Inquiry - Thomas E. Pittman Construction',
+        from_name: 'Thomas E. Pittman Construction Website',
         ...formData,
       };
 

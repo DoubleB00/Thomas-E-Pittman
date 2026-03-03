@@ -29,8 +29,8 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
 
       const payload = {
         access_key: accessKey,
-        subject: 'New Inquiry — Thomas E Pittman Construction',
-        from_name: 'Thomas E Pittman Construction Website',
+        subject: 'New Inquiry - Thomas E. Pittman Construction',
+        from_name: 'Thomas E. Pittman Construction Website',
         ...formData,
         service_type: serviceType,
       };
