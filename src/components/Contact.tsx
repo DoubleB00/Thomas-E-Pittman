@@ -11,20 +11,24 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setErrorMessage('');
 
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
-
       const payload = {
-        access_key: accessKey,
+        access_key: '8f09fe08-fc92-4dc8-8354-8177e2594dcb',
         subject: 'New Inquiry - Thomas E. Pittman Construction',
-        from_name: 'Thomas E. Pittman Construction Website',
-        ...formData,
+        from_name: 'Thomas E. Pittman Website',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service_type: formData.service,
+        message: formData.message,
       };
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -37,18 +41,14 @@ export default function Contact() {
 
       if (result.success) {
         setSubmitStatus('success');
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          service: '',
-          message: '',
-        });
+        setFormData({ name: '', phone: '', email: '', service: '', message: '' });
       } else {
         setSubmitStatus('error');
+        setErrorMessage(result.message || 'Submission failed. Please try again.');
       }
-    } catch {
+    } catch (err) {
       setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -102,6 +102,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -118,6 +119,7 @@ export default function Contact() {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -133,6 +135,7 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -148,6 +151,7 @@ export default function Contact() {
                 </label>
                 <select
                   id="service"
+                  name="service_type"
                   required
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -169,6 +173,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -201,8 +206,11 @@ export default function Contact() {
 
               {submitStatus === 'error' && (
                 <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-                  Something went wrong. Please call us directly at{' '}
-                  <a href="tel:5044002460" className="font-bold underline">504-400-2460</a>.
+                  <p className="font-medium mb-1">{errorMessage}</p>
+                  <p className="text-sm">
+                    Or call us directly at{' '}
+                    <a href="tel:5044002460" className="font-bold underline">504-400-2460</a>.
+                  </p>
                 </div>
               )}
             </form>

@@ -17,22 +17,26 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setHasError(false);
+    setErrorMessage('');
 
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
-
       const payload = {
-        access_key: accessKey,
+        access_key: '8f09fe08-fc92-4dc8-8354-8177e2594dcb',
         subject: 'New Inquiry - Thomas E. Pittman Construction',
-        from_name: 'Thomas E. Pittman Construction Website',
-        ...formData,
+        from_name: 'Thomas E. Pittman Website',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
         service_type: serviceType,
+        service: formData.service,
+        location: formData.location,
+        budget: formData.budget,
+        message: formData.message,
       };
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -45,20 +49,12 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
 
       if (result.success) {
         setIsSubmitted(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          location: '',
-          budget: '',
-          message: ''
-        });
+        setFormData({ name: '', email: '', phone: '', service: '', location: '', budget: '', message: '' });
       } else {
-        setHasError(true);
+        setErrorMessage(result.message || 'Submission failed. Please try again.');
       }
     } catch {
-      setHasError(true);
+      setErrorMessage('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -233,10 +229,12 @@ export default function InquiryForm({ serviceType }: InquiryFormProps) {
         ></textarea>
       </div>
 
-      {hasError && (
+      {errorMessage && (
         <div className="mt-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg text-sm">
-          Something went wrong. Please call us directly at{' '}
-          <a href="tel:5044002460" className="font-bold underline">504-400-2460</a>.
+          <p className="font-medium mb-1">{errorMessage}</p>
+          <p>Or call us directly at{' '}
+            <a href="tel:5044002460" className="font-bold underline">504-400-2460</a>.
+          </p>
         </div>
       )}
 
